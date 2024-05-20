@@ -6,7 +6,7 @@ import serverfiles
 from orangecontrib.bioinformatics.utils import local_cache
 
 version = 'v1'
-server_url = f'https://download.biolab.si/datasets/bioinformatics/{version}/'
+server_url = f'http://localhost:8000/'
 
 
 class ServerFiles(serverfiles.ServerFiles):
