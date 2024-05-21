@@ -41,7 +41,7 @@ from orangecontrib.bioinformatics.widgets.utils.settings import (
 )
 
 SERVER_FILES_DOMAIN = 'marker_genes'
-GROUP_BY_ITEMS = ["Cell Type", "Function", "Foo", "BlaBla"]
+GROUP_BY_ITEMS = ["Cell Type", "Function", "Milestones"]
 FILTER_COLUMNS_DEFAULT = ["Name", "Entrez ID"]
 NUM_LINES_TEXT = 5
 MAP_GROUP_TO_TAX_ID = {'Human': '9606', 'Mouse': '10090', "Dictyostelium discoideum": '44689'}
