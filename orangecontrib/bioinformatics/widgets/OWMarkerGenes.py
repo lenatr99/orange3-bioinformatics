@@ -41,7 +41,7 @@ from orangecontrib.bioinformatics.widgets.utils.settings import (
 )
 
 SERVER_FILES_DOMAIN = 'marker_genes'
-GROUP_BY_ITEMS = ["Cell Type", "Function", "Milestones"]
+GROUP_BY_ITEMS = ["Cell Type", "Function", "Milestones", "Regulon cluster"]
 FILTER_COLUMNS_DEFAULT = ["Name", "Entrez ID"]
 NUM_LINES_TEXT = 5
 MAP_GROUP_TO_TAX_ID = {'Human': '9606', 'Mouse': '10090', "Dictyostelium discoideum": '44689'}
@@ -655,10 +655,11 @@ class TreeModel(QAbstractItemModel):
         names = data_table.get_column("Name")
         types = data_table.get_column(parent_column)
         for n, pt, row in zip(names, types, data_table):
-            if pt not in parents_dict:
-                parents_dict[pt] = TreeItem(pt, True, None, parent)
+            if pt != "?":
+                if pt not in parents_dict:
+                    parents_dict[pt] = TreeItem(pt, True, None, parent)
 
-            TreeItem(n, False, row, parents_dict[pt])
+                TreeItem(n, False, row, parents_dict[pt])
 
     def set_expanded(self, index: QModelIndex, expanded: bool) -> None:
         """
